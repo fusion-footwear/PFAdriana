@@ -4,6 +4,7 @@ import {
   GET_PRODUCTS_BY_NAME,
   GET_PRODUCT_DETAIL,
   GET_CATEGORY,
+  GET_PROMOTIONS,
   GET_SIZE,
   GET_BRAND,
   GET_USERS,
@@ -75,6 +76,7 @@ const initialState = {
   userCompras: null,
   ordenesCompras: null,
   allOrdenesCompras: null,
+  promotions: null,
 };
 
 const storedUser = localStorage.getItem("loginUser");
@@ -431,6 +433,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         allOrdenesCompras: datosAllOrdenes,
       };
+      case GET_PROMOTIONS:
+      const promo = action.payload;
+      return {
+        ...state,
+        promotions: promo
+      }
 
     default:
       return state;
